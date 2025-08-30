@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Hassan - Professional CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-name {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .profile-title {
+            font-size: 1.4em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .profile-summary {
+            font-size: 1.1em;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            background: rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .experience-item, .education-item, .project-item {
+            border-left: 3px solid #667eea;
+            padding-left: 20px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .experience-item::before, .education-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .item-header {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .item-company, .item-school {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .item-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            transform: translateY(-3px);
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .skill-level {
+            height: 6px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transition: width 2s ease;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .cert-item {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 12px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .cert-issuer {
+            color: #667eea;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .profile-name {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-header fade-in">
+            <div class="profile-image">AH</div>
+            <h1 class="profile-name">Ahmed Hassan</h1>
+            <h2 class="profile-title">Data Entry Specialist</h2>
+            <p class="profile-summary">
+                As an ERP Specialist working in Procurement at EDECS, I help bridge the gap between field teams and digital systems using Microsoft Dynamics 365. With hands-on experience creating service and purchase requests, and building smart search dashboards in Power BI, I solve real-world challenges that improve efficiency. I'm passionate about simplifying complex data and enabling smarter decision-making.
+            </p>
+            <div class="contact-info">
+                <a href="mailto:ahmedp24x@gmail.com" class="contact-item">
+                    <span>📧</span> ahmedp24x@gmail.com
+                </a>
+                <a href="tel:+201015285926" class="contact-item">
+                    <span>📱</span> +20 1015285926
+                </a>
+                <a href="https://www.linkedin.com/in/ahmedhasson?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="contact-item">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="https://github.com/Ahmedhassan1944" class="contact-item">
+                    <span>🔗</span> GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Experience Section -->
+            <div class="section fade-in">
+                <h3 class="section-title">
+                    <div class="section-icon">💼</div>
+                    Experience
+                </h3>
+                
+                <div class="experience-item">
+                    <div class="item-header">Data Entry Specialist</div>
+                    <div class="item-company">EDECS</div>
+                    <div class="item-date">May 2025 - Present · 4 months</div>
+                    <div class="item-description">
+                        Contributed to internal process improvement by developing a Power BI dashboard for monitoring Purchase Requisition and Service Request workflows. Enabled better visibility into workflow bottlenecks (e.g., requests pending in a specific department). Extracted and cleaned data from Dynamics 365 using OData Feed. Built data models and DAX measures to track request progress and responsible personnel. The dashboard was used by the procurement and quality teams to enhance efficiency and track performance metrics.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">Data Entry</div>
+                    <div class="item-company">Hassan allam's sons</div>
+                    <div class="item-date">Nov 2023 - Feb 2024 · 4 months</div>
+                    <div class="item-description">
+                        Worked as a data entry specialist as part of a project to enter data accurately and efficiently using MS Word & Excel.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="section fade-in">
+                <h3 class="section-title">
+                    <div class="section-icon">🚀</div>
+                    Skills
+                </h3>
+                
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">Power BI</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">SQL</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">T-SQL</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Excel</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Word</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Power Point</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Python</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Microsoft SQL Server</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Typing</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">API (OData Feed)</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">ERP Microsoft Dynamics 365 F&O</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Section -->
+            <div class="section fade-in">
+                <h3 class="section-title">
+                    <div class="section-icon">🎓</div>
+                    Education
+                </h3>
+                
+                <div class="education-item">
+                    <div class="item-header">Bachelor of Commerce - BCom, Statistics</div>
+                    <div class="item-school">Al-Azhar University</div>
+                    <div class="item-date">Oct 2019 - Jul 2023</div>
+                    <div class="item-description">
+                        Grade: Very Good with honor. Specialized in statistical analysis and data interpretation, providing a strong foundation for data-driven decision making in business environments.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="section fade-in">
+                <h3 class="section-title">
+                    <div class="section-icon">🔧</div>
+                    Key Projects
+                </h3>
+                
+                <div class="project-item">
+                    <div class="item-header">Smart Item Code Search using Power BI & OData Feed</div>
+                    <div class="item-date">2025</div>
+                    <div class="item-description">
+                        Developed a Power BI project that connects two tables using the OData API feed. 
+                        The main objective is to simplify the process of identifying item or service codes 
+                        inside Microsoft Dynamics 365 ERP.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">Workflow Monitoring Dashboard – Power BI</div>
+                    <div class="item-date">2025</div>
+                    <div class="item-description">
+                        Designed and developed an interactive Power BI dashboard to monitor workflow processes 
+                        for Purchase Requisitions and Service Requests at EDECS.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">PowerPoint Logistics Tracker</div>
+                    <div class="item-date">2025</div>
+                    <div class="item-description">
+                        Developed an interactive PowerPoint logistics tracker for Viaduct 98 – Nile SAT (Part 2), 
+                        documenting daily vehicle movements with visual maps, animations, and organized tables. 
+                        Enhanced reporting by delivering clear, professional insights without complex tools.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Section -->
+            <div class="section fade-in full-width">
+                <h3 class="section-title">
+                    <div class="section-icon">🏆</div>
+                    Certifications & Achievements
+                </h3>
+                
+                <div class="certifications-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">Google Data Analytics Professional Certificate</div>
+                        <div class="cert-issuer">Google</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Analyzing and Visualizing Data with Microsoft Power BI</div>
+                        <div class="cert-issuer">365 Data Science</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Typing Certificate</div>
+                        <div class="cert-issuer">Typing.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill bars
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.style.width;
+                        entry.target.style.width = '0%';
+                        setTimeout(() => {
+                            entry.target.style.width = width;
+                        }, 200);
+                    }
+                });
+            });
+
+            skillBars.forEach(bar => observer.observe(bar));
+
+            // Add staggered animation to fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Smooth hover effects for contact items
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px) scale(1.02)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
